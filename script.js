@@ -66,8 +66,8 @@ function original2() {
     var imagem1 = document.getElementById("tabcoin");
     var imagem2 = document.getElementById("tabcash");
     
-    var novoCaminho1 = "/icons/original-coin2.svg"; 
-    var novoCaminho2 = "/icons/original-cash2.svg"; 
+    var novoCaminho1 = "/icons/original-coin.svg"; 
+    var novoCaminho2 = "/icons/original-cash.svg"; 
     
     imagem1.src = novoCaminho1;
     imagem2.src = novoCaminho2;
