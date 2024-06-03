@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-minified.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/icons/icon2-pp.svg" type="image/x-icon">
 
     <title>Redesign Icons TabNews</title>
@@ -29,11 +29,11 @@
             <div class="post"><img src="/icons/post.svg" alt="postar, não interativa"></div>
             
             <div class="tabcoin" >
-                <img id="tabcoin" src="/icons/p-coin.svg" alt="tabcoin">
+                <img id="tabcoin" class="icon" src="/icons/icons-v2/coin-full-2.svg" alt="tabcoin">
                 <p class="number">30</p>
             </div>
             <div class="tabcash">
-                <img id="tabcash" src="/icons/icons-v2/crystal-pp-50.svg" alt="tabcash">
+                <img id="tabcash" class="icon" src="/icons/icons-v2/crystal-full-2.svg" alt="tabcash">
                 <p class="number">70</p>
             </div>
 
@@ -45,24 +45,35 @@
         <div class="container">
             <h1>Selecione o Tamanho</h1>
             <div class="sizes">
-                <h3>Forma 1:</h3>
+                <h3>Forma 1</h3>
                 <div class="crystal">
                     <button class="btn" id="original"><p>00</p></button>
-                    <button class="btn background"  id="pp"><p>PP</p></button>
+                    <button class="btn background"  id="pp"><div class="full"></div></button>
                     <button class="btn" id="mm"><p>MM</p></button>
                     <button class="btn" id="mg"><p>MG</p></button>
                     <button class="btn" id="gg"><p>GG</p></button>
                 </div>
-                <h3>Forma 2:</h3>
+                <h3>Forma 2</h3>
                 <div class="cube">
                     <button class="btn" id="original2"><p>00</p></button>
-                    <button class="btn" id="pp2"><p>PP</p></button>
+                    <button class="btn" id="pp2"><div class="full"></button>
                     <button class="btn" id="mm2"><p>MM</p></button>
                     <button class="btn" id="mg2"><p>MG</p></button>
                     <button class="btn" id="gg2"><p>GG</p></button>
 
                 </div>
             </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <h3>Escala</h3>
+            <div class="size">
+                <button class="btn2 background2" id="twelve"><p>12px</p></button>
+                <button class="btn2" id="fourteen"><p>14px</p></button>
+                <button class="btn2" id="sixteen"><p>16px</p></button>
+            </div>
+
         </div>
     </main>
     <script src="/script.js"></script>
