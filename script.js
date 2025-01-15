@@ -1,167 +1,81 @@
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Image change functionality
+    function changeImage(buttonId, imageId, altText) {
+        const button = document.getElementById(buttonId);
+        const image = document.getElementById(imageId);
+        
+        if (!button || !image) {
+            console.error(`Element not found: Button ${buttonId} or Image ${imageId}`);
+            return;
+        }
+        
+        button.addEventListener('click', function() {
+            const currentAlt = image.alt;
+            const newAlt = currentAlt === altText ? altText.replace(/\./g, '-') : altText;
+            const newSrc = `/icons/icons-v4/${newAlt}.svg`;
+            
+            if (newSrc && newSrc.includes('/icons/icons-v4/')) {
+                image.src = newSrc;
+                console.log('Image changed to:', newSrc);
+            } else {
+                console.error('Invalid or not found path:', newSrc);
+            }
+        });
+    }
 
-      document.querySelectorAll('.btn').forEach(b => b.classList.remove('background'));
-      
-      this.classList.add('background');
+    // Button background toggle functionality
+    function setupBackgroundToggle(buttonClass, backgroundClass) {
+        document.querySelectorAll(`.${buttonClass}`).forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll(`.${buttonClass}`).forEach(b => 
+                    b.classList.remove(backgroundClass));
+                this.classList.add(backgroundClass);
+            });
+        });
+    }
+
+    // Icon size control functionality
+    const sizeControls = {
+        'twelve': '0.75rem',   // PP size
+        'fourteen': '0.875rem', // MM size
+        'sixteen': '1rem'       // GG size
+    };
+
+    function changeIconSize(size) {
+        document.querySelectorAll('.icon').forEach(icon => {
+            icon.style.width = size;
+            icon.style.height = size; // Maintain aspect ratio
+            icon.style.transition = 'width 0.2s, height 0.2s'; // Smooth transition
+        });
+    }
+
+    // Set up size control buttons
+    Object.entries(sizeControls).forEach(([buttonId, size]) => {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.addEventListener('click', () => changeIconSize(size));
+        } else {
+            console.warn(`Size control button '${buttonId}' not found`);
+        }
     });
-});  
 
-document.querySelectorAll('.btn2').forEach(btn => {
-    btn.addEventListener('click', function() {
+    // Initialize controls
+    setupBackgroundToggle('btn', 'background');
+    setupBackgroundToggle('btn2', 'background');
+    setupBackgroundToggle('btn3', 'background2');
 
-      document.querySelectorAll('.btn2').forEach(b => b.classList.remove('background2'));
-      
-      this.classList.add('background2');
+    // Initialize image changers
+    const imageChangers = [
+        ['tabcoin0', 'tabcoin', 'original-coin'],
+        ['tabcoin1', 'tabcoin', 'icon-c2'],
+        ['tabcoin2', 'tabcoin', 'icon-c1'],
+        ['tabcash0', 'tabcash', 'icon-g1'],
+        ['tabcash1', 'tabcash', 'icon-g2'],
+        ['tabcash2', 'tabcash', 'icon-g3'],
+        ['tabcash3', 'tabcash', 'icon-g4']
+    ];
+
+    imageChangers.forEach(([buttonId, imageId, altText]) => {
+        changeImage(buttonId, imageId, altText);
     });
-});  
-
-function original() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/original-coin.svg"; 
-    var newRoute2 = "/icons/original-cash.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function ppCrystal() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-full-2.svg"; 
-    var newRoute2 = "/icons/icons-v2/crystal-full-2.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function mmCrystal() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-mm-50.svg"; 
-    var newRoute2 = "/icons/icons-v2/crystal-mm-50.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function mgCrystal() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-mg-50.svg"; 
-    var newRoute2 = "/icons/icons-v2/crystal-mg-50.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function ggCrystal() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-gg-50.svg"; 
-    var newRoute2 = "/icons/icons-v2/crystal-gg-50.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function original2() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/original-coin.svg"; 
-    var newRoute2 = "/icons/original-cash.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function ppCube() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-full-2.svg"; 
-    var newRoute2 = "/icons/icons-v2/cube.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function mmCube() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-mm-50.svg"; 
-    var newRoute2 = "/icons/m-cube.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function mgCube() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-mg-50.svg"; 
-    var newRoute2 = "/icons/mg-cube.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function ggCube() {
-    var img1 = document.getElementById("tabcoin");
-    var img2 = document.getElementById("tabcash");
-    
-    var newRoute1 = "/icons/icons-v2/coin-gg-50.svg"; 
-    var newRoute2 = "/icons/g-cube.svg"; 
-    
-    img1.src = newRoute1;
-    img2.src = newRoute2;
-}
-
-function ppSize() {
-    var icones = document.querySelectorAll('.icon');
-
-    icones.forEach(icone => {
-        icone.style.width = '0.75rem';
-    });
-}
-
-function mmSize() {
-    var icones = document.querySelectorAll('.icon');
-
-    icones.forEach(icone => {
-        icone.style.width = '0.875rem';
-    });
-}
-
-function ggSize() {
-    var icones = document.querySelectorAll('.icon');
-
-    icones.forEach(icone => {
-        icone.style.width = '1rem';
-    });
-}
-
-document.getElementById("original").addEventListener("click", original);
-document.getElementById("pp").addEventListener("click", ppCrystal);
-document.getElementById("mm").addEventListener("click", mmCrystal);
-document.getElementById("mg").addEventListener("click", mgCrystal);
-document.getElementById("gg").addEventListener("click", ggCrystal);
-document.getElementById("original2").addEventListener("click", original2);
-document.getElementById("pp2").addEventListener("click", ppCube);
-document.getElementById("mm2").addEventListener("click", mmCube);
-document.getElementById("mg2").addEventListener("click", mgCube);
-document.getElementById("gg2").addEventListener("click", ggCube);
-document.getElementById('twelve').addEventListener('click', ppSize);
-document.getElementById('fourteen').addEventListener('click', mmSize);
-document.getElementById('sixteen').addEventListener('click', ggSize);
-
-
+});
