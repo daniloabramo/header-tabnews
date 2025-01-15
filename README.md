@@ -6,4 +6,4 @@ Pode encontrar mais informações na issue [#1326](https://github.com/filipedesc
 
 [Acessar o site](https://header-tabnews.vercel.app/).
 
-<a href="https://imgur.com/cXycfSQ"><img src="https://i.imgur.com/cXycfSQ.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/BwhdEhP"><img src="https://i.imgur.com/BwhdEhP.png" title="source: imgur.com" /></a>
