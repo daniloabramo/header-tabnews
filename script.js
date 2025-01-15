@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ['tabcoin0', 'tabcoin', 'original-coin'],
         ['tabcoin1', 'tabcoin', 'icon-c2'],
         ['tabcoin2', 'tabcoin', 'icon-c1'],
+        ['tabcash00', 'tabcash', 'original-cash'],
         ['tabcash0', 'tabcash', 'icon-g1'],
         ['tabcash1', 'tabcash', 'icon-g2'],
         ['tabcash2', 'tabcash', 'icon-g3'],
